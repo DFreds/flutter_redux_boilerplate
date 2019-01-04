@@ -19,7 +19,7 @@ RepoState _queryChanged(RepoState state, QueryChangedAction action) {
 RepoState _githubLoadSuccess(RepoState state, GithubLoadSuccessAction action) {
   return state.copyWith(
     isLoading: false,
-    repos: action.repos,
+    data: action.data,
     error: null,
   );
 }

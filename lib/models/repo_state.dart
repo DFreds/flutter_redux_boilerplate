@@ -31,8 +31,8 @@ class RepoState {
     bool isLoading,
     int currentPage,
     String query,
+    List<Repo> data,
     String error,
-    List<Repo> repos,
   }) {
     return RepoState(
       isLoading: isLoading ?? this.isLoading,

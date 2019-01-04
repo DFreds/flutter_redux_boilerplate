@@ -20,7 +20,7 @@ void _searchGithub(Store<AppState> store, QueryChangedAction action, NextDispatc
 
   try {
     final List<Repo> repos = await GithubApi.fetchRepos(action.query);
-    store.dispatch(GithubLoadSuccessAction(repos: repos));
+    store.dispatch(GithubLoadSuccessAction(data: repos));
   } catch (e) {
     store.dispatch(GithubLoadFailureAction(error: e.toString()));
   }

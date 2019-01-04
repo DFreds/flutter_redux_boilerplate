@@ -10,10 +10,10 @@ class QueryChangedAction {
 }
 
 class GithubLoadSuccessAction {
-  final List<Repo> repos;
+  final List<Repo> data;
 
   GithubLoadSuccessAction({
-    @required this.repos,
+    @required this.data,
   });
 }
 
