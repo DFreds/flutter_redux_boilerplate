@@ -6,7 +6,7 @@ class AppState {
   final RepoState repoState;
 
   AppState({
-    @required this.repoState, 
+    @required this.repoState,
   });
 
   factory AppState.initial() {
@@ -14,4 +14,6 @@ class AppState {
       repoState: RepoState.initial(),
     );
   }
+
+  // TODO hash code and equals
 }

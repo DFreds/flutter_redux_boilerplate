@@ -1,4 +1,4 @@
 import 'package:flutter_redux_boilerplate/models/app_state.dart';
-import 'package:flutter_redux_boilerplate/models/repo.dart';
+import 'package:flutter_redux_boilerplate/models/repo_state.dart';
 
-List<Repo> reposSelector(AppState state) => state.repoState.repos;
+RepoState repoStateSelector(AppState state) => state.repoState;

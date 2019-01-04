@@ -17,4 +17,10 @@ class GithubLoadSuccessAction {
   });
 }
 
-class GithubLoadFailureAction {}
+class GithubLoadFailureAction {
+  final String error;
+
+  GithubLoadFailureAction({
+    @required this.error,
+  });
+}

@@ -12,20 +12,21 @@ RepoState _queryChanged(RepoState state, QueryChangedAction action) {
   return state.copyWith(
     isLoading: true,
     query: action.query,
+    error: null,
   );
 }
 
 RepoState _githubLoadSuccess(RepoState state, GithubLoadSuccessAction action) {
   return state.copyWith(
     isLoading: false,
-    isError: false,
     repos: action.repos,
+    error: null,
   );
 }
 
 RepoState _githubLoadFailure(RepoState state, GithubLoadFailureAction action) {
   return state.copyWith(
     isLoading: false,
-    isError: true,
+    error: action.error,
   );
 }

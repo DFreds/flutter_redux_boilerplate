@@ -4,37 +4,42 @@ import 'package:meta/meta.dart';
 @immutable
 class RepoState {
   final bool isLoading;
+  final int currentPage;
   final String query;
-  final bool isError;
-  final List<Repo> repos;
+  final List<Repo> data;
+  final String error;
 
   RepoState({
-    @required this.isLoading, 
+    @required this.isLoading,
+    @required this.currentPage,
     @required this.query,
-    @required this.isError,
-    @required this.repos,
+    @required this.data,
+    @required this.error,
   });
 
   factory RepoState.initial() {
     return RepoState(
       isLoading: false,
+      currentPage: 1,
       query: '',
-      isError: false,
-      repos: [],
+      data: [],
+      error: null,
     );
   }
 
   RepoState copyWith({
     bool isLoading,
+    int currentPage,
     String query,
-    bool isError,
+    String error,
     List<Repo> repos,
   }) {
     return RepoState(
       isLoading: isLoading ?? this.isLoading,
+      currentPage: currentPage ?? this.currentPage,
       query: query ?? this.query,
-      isError: isError ?? this.isError,
-      repos: repos ?? this.repos,
+      data: data ?? this.data,
+      error: error ?? this.error,
     );
   }
 
