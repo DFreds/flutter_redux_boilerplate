@@ -4,7 +4,7 @@ import 'package:flutter_redux_boilerplate/models/github_repo_result.dart';
 import 'package:flutter_redux_boilerplate/models/repo.dart';
 import 'package:http/http.dart';
 
-class GithubApi {
+class GithubWebClient {
   static Client client = Client();
 
   static Future<GithubRepoResult> fetchRepoResult(String query) async {

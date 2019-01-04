@@ -1,7 +1,7 @@
 import 'package:flutter_redux_boilerplate/actions/actions.dart';
 import 'package:flutter_redux_boilerplate/models/app_state.dart';
 import 'package:flutter_redux_boilerplate/models/repo.dart';
-import 'package:flutter_redux_boilerplate/services/github_api.dart';
+import 'package:flutter_redux_boilerplate/services/github_web_client.dart';
 import 'package:redux/redux.dart';
 
 List<Middleware<AppState>> createMiddleware() => <Middleware<AppState>>[
@@ -19,7 +19,7 @@ void _searchGithub(Store<AppState> store, QueryChangedAction action, NextDispatc
   next(action);
 
   try {
-    final List<Repo> repos = await GithubApi.fetchRepos(action.query);
+    final List<Repo> repos = await GithubWebClient.fetchRepos(action.query);
     store.dispatch(GithubLoadSuccessAction(data: repos));
   } catch (e) {
     store.dispatch(GithubLoadFailureAction(error: e.toString()));
