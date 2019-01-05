@@ -45,7 +45,7 @@ needs to change.
 
 Middleware are functions that allow Redux to run asynchronous code and dispatch new actions when
 the async functions complete. Each middleware must be provided to the store when the store is
-created. An example is provided with `middleware.dart`, which utilizes the `TypedMiddleware`
+created. An example is provided with `app_middleware.dart`, which utilizes the `TypedMiddleware`
 helper to map specific actions to specific middleware methods. However, this is just my
 recommended way of doing it, and there is nothing stopping you from implementing your reducers with
 simple `switch` or `if` statements. Read more about middleware
