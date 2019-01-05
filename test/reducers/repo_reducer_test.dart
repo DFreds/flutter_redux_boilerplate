@@ -29,7 +29,7 @@ void main() {
     });
 
     group('when QueryChangedAction', () {
-      final givenQuery = "some query";
+      final givenQuery = 'some query';
 
       setUp(() {
         store.dispatch(QueryChangedAction(query: givenQuery));

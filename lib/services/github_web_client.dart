@@ -1,14 +1,13 @@
 import 'dart:convert';
-
 import 'package:flutter_redux_boilerplate/models/github_repo_result.dart';
 import 'package:flutter_redux_boilerplate/models/repo.dart';
-import 'package:http/http.dart';
+import 'package:http/http.dart' as http;
 
 class GithubWebClient {
-  static Client client = Client();
+  const GithubWebClient();
 
-  static Future<GithubRepoResult> fetchRepoResult(String query) async {
-    final response = await client
+  Future<GithubRepoResult> fetchRepoResult(String query) async {
+    final response = await http
         .get('https://api.github.com/search/repositories?q=$query&sort=stars');
 
     var githubRepoResultJson = json.decode(response.body);
@@ -20,8 +19,8 @@ class GithubWebClient {
     }
   }
 
-  static Future<List<Repo>> fetchRepos(String query) async {
-    final response = await client
+  Future<List<Repo>> fetchRepos(String query) async {
+    final response = await http
         .get('https://api.github.com/search/repositories?q=$query&sort=stars');
 
     var list = json.decode(response.body)['items'] as List;
