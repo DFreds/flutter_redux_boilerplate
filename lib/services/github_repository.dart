@@ -4,7 +4,7 @@ import 'package:flutter_redux_boilerplate/services/github_web_client.dart';
 
 class GithubRepository {
   final GithubWebClient githubWebClient;
-  
+
   const GithubRepository({
     this.githubWebClient = const GithubWebClient(),
   });

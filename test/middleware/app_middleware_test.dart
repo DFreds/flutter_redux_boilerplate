@@ -8,7 +8,7 @@ import 'package:redux/redux.dart';
 import 'package:flutter_redux_boilerplate/reducers/app_reducer.dart';
 import 'package:mockito/mockito.dart';
 
-class MockGithubRepository extends Mock implements GithubRepository {}
+import '../mocks.dart';
 
 void main() {
   group('The middleware', () {
