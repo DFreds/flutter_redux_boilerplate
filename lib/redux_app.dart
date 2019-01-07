@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:flutter_redux_boilerplate/models/app_state.dart';
-import 'package:flutter_redux_boilerplate/screens/home_screen.dart';
+import 'package:flutter_redux_boilerplate/screens/main_screen.dart';
 import 'package:redux/redux.dart';
 
 class ReduxApp extends StatelessWidget {
@@ -20,7 +20,7 @@ class ReduxApp extends StatelessWidget {
         ),
         routes: <String, WidgetBuilder>{
           '/': (BuildContext context) {
-            return HomeScreen();
+            return MainScreen();
           }
         },
       ),

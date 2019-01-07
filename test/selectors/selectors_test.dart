@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_redux_boilerplate/models/app_state.dart';
 import 'package:flutter_redux_boilerplate/models/repo_state.dart';
 import 'package:flutter_redux_boilerplate/selectors/selectors.dart';
@@ -14,6 +15,30 @@ void main() {
         appReducer,
         initialState: AppState.initial(),
       );
+    });
+
+    group('when rootScreenSelector', () {
+      Widget result;
+
+      setUp(() {
+        result = rootScreenSelector(store.state);
+      });
+
+      test('should return the root screen', () {
+        expect(result == null, false);
+      });
+    });
+
+    group('when selectedBottomNavSelector', () {
+      int result;
+
+      setUp(() {
+        result = selectedBottomNavSelector(store.state);
+      });
+
+      test('should return the root screen', () {
+        expect(result == 0, true);
+      });
     });
 
     group('when repoStateSelector', () {

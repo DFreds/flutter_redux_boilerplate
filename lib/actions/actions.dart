@@ -1,6 +1,14 @@
 import 'package:flutter_redux_boilerplate/models/repo.dart';
 import 'package:meta/meta.dart';
 
+class ChangeBottomNavAction {
+  final int index;
+
+  ChangeBottomNavAction({
+    @required this.index,
+  });
+}
+
 class QueryChangedAction {
   final String query;
 

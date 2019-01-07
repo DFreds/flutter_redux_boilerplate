@@ -65,7 +65,8 @@ simple `switch` or `if` statements. Read more about middleware
 
 Models hold all data objects utilized throughout the application. This includes the Redux state
 objects as well as simple data classes. The `app_state.dart` file defines the main state of the
-store and uses substate objects such as `repo_state.dart` to help organize the state of the app.
+store and uses substate objects such as `nav_state.dart` and `repo_state.dart` to help organize
+the state of the app.
 
 ### reducers
 
@@ -80,7 +81,8 @@ simple `switch` or `if` statements. Read more about the helpers
 ### screens
 
 Screens are widgets that compose other widgets in order to display a full screen in an application.
-These are the widgets that get navigated to via the `Navigator` and are referenced in the routes.
+These are the widgets that can optionally be navigated to via the `Navigator` and can be referenced
+in the routes.
 
 ### selectors
 
@@ -165,4 +167,3 @@ version of `AppState`.
 ## Other TODOs
 
 * Do some pagination of the github data
-* Showcase some navigation as part of state
