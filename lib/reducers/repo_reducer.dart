@@ -1,4 +1,5 @@
 import 'package:flutter_redux_boilerplate/actions/actions.dart';
+import 'package:flutter_redux_boilerplate/models/github_repo_result.dart';
 import 'package:flutter_redux_boilerplate/models/repo_state.dart';
 import 'package:redux/redux.dart';
 
@@ -27,6 +28,7 @@ RepoState _githubLoadSuccess(RepoState state, GithubLoadSuccessAction action) {
 RepoState _githubLoadFailure(RepoState state, GithubLoadFailureAction action) {
   return state.copyWith(
     isLoading: false,
+    data: GithubRepoResult.initial(),
     error: action.error,
   );
 }

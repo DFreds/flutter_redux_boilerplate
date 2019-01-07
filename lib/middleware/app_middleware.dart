@@ -1,6 +1,6 @@
 import 'package:flutter_redux_boilerplate/actions/actions.dart';
 import 'package:flutter_redux_boilerplate/models/app_state.dart';
-import 'package:flutter_redux_boilerplate/models/repo.dart';
+import 'package:flutter_redux_boilerplate/models/github_repo_result.dart';
 import 'package:flutter_redux_boilerplate/services/github_repository.dart';
 import 'package:redux/redux.dart';
 
@@ -30,8 +30,8 @@ class AppMiddleware {
     next(action);
 
     try {
-      final List<Repo> repos = await repository.loadRepos(action.query);
-      store.dispatch(GithubLoadSuccessAction(data: repos));
+      final GithubRepoResult repoResult = await repository.loadRepoResult(action.query);
+      store.dispatch(GithubLoadSuccessAction(data: repoResult));
     } catch (e) {
       store.dispatch(GithubLoadFailureAction(error: e.toString()));
     }

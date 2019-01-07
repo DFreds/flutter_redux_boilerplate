@@ -1,6 +1,7 @@
 import 'package:flutter_redux_boilerplate/actions/actions.dart';
 import 'package:flutter_redux_boilerplate/middleware/app_middleware.dart';
 import 'package:flutter_redux_boilerplate/models/app_state.dart';
+import 'package:flutter_redux_boilerplate/models/github_repo_result.dart';
 import 'package:flutter_redux_boilerplate/models/repo.dart';
 import 'package:flutter_redux_boilerplate/services/github_repository.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -35,7 +36,8 @@ void main() {
       final givenQuery = 'some query';
 
       test('should have the default state', () {
-        expect(store.state.repoState.data, []);
+        expect(store.state.repoState.data.totalCount, 0);
+        expect(store.state.repoState.data.items, []);
         expect(store.state.repoState.error, null);
       });
 
@@ -43,7 +45,8 @@ void main() {
         Exception givenException = Exception();
 
         setUp(() {
-          when(mockGithubRepository.loadRepos(givenQuery)).thenThrow(givenException);
+          when(mockGithubRepository.loadRepoResult(givenQuery))
+              .thenThrow(givenException);
 
           store.dispatch(QueryChangedAction(query: givenQuery));
         });
@@ -54,21 +57,25 @@ void main() {
       });
 
       group('and the repository request succeeds without issue', () {
-        List<Repo> givenList = <Repo>[
-          Repo(
-            name: 'some name',
-            stars: 120,
-          ),
-        ];
+        GithubRepoResult givenResult = GithubRepoResult(
+          totalCount: 120,
+          items: <Repo>[
+            Repo(
+              name: 'some name',
+              stars: 120,
+            ),
+          ],
+        );
 
         setUp(() {
-          when(mockGithubRepository.loadRepos(givenQuery)).thenAnswer((_) => Future.value(givenList));
+          when(mockGithubRepository.loadRepoResult(givenQuery))
+              .thenAnswer((_) => Future.value(givenResult));
 
           store.dispatch(QueryChangedAction(query: givenQuery));
         });
 
         test('should set the data', () {
-          expect(store.state.repoState.data, givenList);
+          expect(store.state.repoState.data, givenResult);
         });
       });
     });

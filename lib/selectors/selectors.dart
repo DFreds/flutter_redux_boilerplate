@@ -7,3 +7,5 @@ Widget rootScreenSelector(AppState state) => state.navState.rootScreen;
 int selectedBottomNavSelector(AppState state) => state.navState.selectedBottomNav;
 
 RepoState repoStateSelector(AppState state) => state.repoState;
+
+int totalResultsSelector(AppState state) => state.repoState.data.totalCount;

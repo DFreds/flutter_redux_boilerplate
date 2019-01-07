@@ -35,26 +35,5 @@ void main() {
         expect(await result, givenResponse);
       });
     });
-
-    group('when loadRepos', () {
-      Future<List<Repo>> result;
-      String givenQuery = 'some query';
-      List<Repo> givenResponse = <Repo>[
-        Repo(
-          name: 'some name',
-          stars: 120,
-        ),
-      ];
-
-      setUp(() {
-        when(mockGithubWebClient.fetchRepos(givenQuery)).thenAnswer((_) => Future.value(givenResponse));
-
-        result = uut.loadRepos(givenQuery);
-      });
-
-      test('should return the result of the fetch', () async {
-        expect(await result, givenResponse);
-      });
-    });
   });
 }

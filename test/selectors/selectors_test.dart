@@ -36,8 +36,8 @@ void main() {
         result = selectedBottomNavSelector(store.state);
       });
 
-      test('should return the root screen', () {
-        expect(result == 0, true);
+      test('should return the selected bottom navigation index', () {
+        expect(result, 0);
       });
     });
 
@@ -50,6 +50,18 @@ void main() {
 
       test('should return the repo state', () {
         expect(result == null, false);
+      });
+    });
+
+    group('when totalResultsSelector', () {
+      int result;
+
+      setUp(() {
+        result = totalResultsSelector(store.state);
+      });
+
+      test('should return the total results', () {
+        expect(result, 0);
       });
     });
   });

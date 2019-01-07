@@ -4,6 +4,7 @@ import 'package:flutter_redux_boilerplate/components/error_text.dart';
 import 'package:flutter_redux_boilerplate/components/loading.dart';
 import 'package:flutter_redux_boilerplate/components/repo_list_tile.dart';
 import 'package:flutter_redux_boilerplate/models/app_state.dart';
+import 'package:flutter_redux_boilerplate/models/repo.dart';
 import 'package:flutter_redux_boilerplate/models/repo_state.dart';
 import 'package:flutter_redux_boilerplate/selectors/selectors.dart';
 import 'package:redux/redux.dart';
@@ -23,14 +24,16 @@ class RepoList extends StatelessWidget {
           return ErrorText(error: viewModel.repoState.error);
         }
 
-        if (viewModel.repoState.data.isEmpty) return Container();
+        if (viewModel.repoState.data.totalCount == 0) return Container();
+
+        final List<Repo> repoItems = viewModel.repoState.data.items;
 
         return ListView.separated(
-          itemCount: viewModel.repoState.data.length,
+          itemCount: repoItems.length,
           separatorBuilder: (BuildContext context, int index) => Divider(),
           itemBuilder: (BuildContext context, int index) {
             return RepoListTile(
-              repo: viewModel.repoState.data[index],
+              repo: repoItems[index],
             );
           },
         );

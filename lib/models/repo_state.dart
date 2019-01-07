@@ -1,4 +1,4 @@
-import 'package:flutter_redux_boilerplate/models/repo.dart';
+import 'package:flutter_redux_boilerplate/models/github_repo_result.dart';
 import 'package:meta/meta.dart';
 
 @immutable
@@ -6,7 +6,7 @@ class RepoState {
   final bool isLoading;
   final int currentPage;
   final String query;
-  final List<Repo> data;
+  final GithubRepoResult data;
   final String error;
 
   RepoState({
@@ -22,7 +22,7 @@ class RepoState {
       isLoading: false,
       currentPage: 1,
       query: '',
-      data: [],
+      data: GithubRepoResult.initial(),
       error: null,
     );
   }
@@ -31,7 +31,7 @@ class RepoState {
     bool isLoading,
     int currentPage,
     String query,
-    List<Repo> data,
+    GithubRepoResult data,
     String error,
   }) {
     return RepoState(

@@ -1,4 +1,4 @@
-import 'package:flutter_redux_boilerplate/models/repo.dart';
+import 'package:flutter_redux_boilerplate/models/github_repo_result.dart';
 import 'package:meta/meta.dart';
 
 class ChangeBottomNavAction {
@@ -18,7 +18,7 @@ class QueryChangedAction {
 }
 
 class GithubLoadSuccessAction {
-  final List<Repo> data;
+  final GithubRepoResult data;
 
   GithubLoadSuccessAction({
     @required this.data,

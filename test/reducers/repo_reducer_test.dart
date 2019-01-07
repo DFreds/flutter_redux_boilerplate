@@ -1,10 +1,10 @@
 import 'package:flutter_redux_boilerplate/actions/actions.dart';
+import 'package:flutter_redux_boilerplate/models/github_repo_result.dart';
 import 'package:flutter_redux_boilerplate/models/repo.dart';
 import 'package:flutter_redux_boilerplate/models/repo_state.dart';
 import 'package:flutter_redux_boilerplate/reducers/repo_reducer.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:redux/redux.dart';
-import '../test_helpers.dart';
 
 void main() {
   group('The repoReducer', () {
@@ -24,7 +24,8 @@ void main() {
       expect(store.state.isLoading, false);
       expect(store.state.currentPage, 1);
       expect(store.state.query, '');
-      expect(store.state.data, []);
+      expect(store.state.data.totalCount, 0);
+      expect(store.state.data.items, []);
       expect(store.state.error, null);
     });
 
@@ -49,16 +50,19 @@ void main() {
     });
 
     group('when GithubLoadSuccessAction', () {
-      final givenRepos = <Repo>[
-        Repo(
-          name: 'some name',
-          stars: 102
-        ),
-      ];
+        GithubRepoResult givenResult = GithubRepoResult(
+          totalCount: 120,
+          items: <Repo>[
+            Repo(
+              name: 'some name',
+              stars: 120,
+            ),
+          ],
+        );
 
       setUp(() {
         store.dispatch(GithubLoadSuccessAction(
-          data: givenRepos,
+          data: givenResult,
         ));
       });
 
@@ -67,7 +71,7 @@ void main() {
       });
 
       test('should set data to given repos', () {
-        expect(eqList(store.state.data, givenRepos), true);
+        expect(store.state.data, givenResult);
       });
 
       test('should set error to null', () {

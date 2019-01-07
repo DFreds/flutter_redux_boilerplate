@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux_boilerplate/containers/repo_list.dart';
 import 'package:flutter_redux_boilerplate/containers/search_field.dart';
+import 'package:flutter_redux_boilerplate/containers/total_results_text.dart';
 
 class RepoListScreen extends StatelessWidget {
 
@@ -10,6 +11,7 @@ class RepoListScreen extends StatelessWidget {
       child: Column(
         children: <Widget>[
           SearchField(),
+          TotalResultsText(),
           Expanded(child: RepoList()),
         ],
       ),

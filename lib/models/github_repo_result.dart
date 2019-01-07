@@ -9,9 +9,16 @@ class GithubRepoResult {
     this.items,
   });
 
+  factory GithubRepoResult.initial() {
+    return GithubRepoResult(
+      totalCount: 0,
+      items: [],
+    );
+  }
+
   factory GithubRepoResult.fromJson(Map<String, dynamic> json) {
     return GithubRepoResult(
-      totalCount: json['totalCount'],
+      totalCount: json['total_count'],
       items: (json['items'] as List).map((repo) {
         return Repo.fromJson(repo);
       }).toList(),
