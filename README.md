@@ -2,6 +2,16 @@
 
 A Flutter boilerplate application with Redux.
 
+## Getting Started
+
+Fork this repository or simply use it as a base as you make your own application. If you fork it,
+be sure to rename the app to your app name in these locations:
+
+* `android/app/src/main/AndroidManifest.xml` (replace the android:label)
+* `ios/Runner/Info.plist` (CFBundleName, replace the `<string>` entry)
+* `redux_app.dart` (title property)
+
+
 ## Motivation
 
 I wasn't happy with the other Flutter Redux boilerplates as I found they included too many optional
@@ -154,6 +164,5 @@ version of `AppState`.
 
 ## Other TODOs
 
-* Write some tests
 * Do some pagination of the github data
 * Showcase some navigation as part of state
