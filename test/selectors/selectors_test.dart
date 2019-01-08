@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux_boilerplate/models/app_state.dart';
+import 'package:flutter_redux_boilerplate/models/owner_details_state.dart';
 import 'package:flutter_redux_boilerplate/models/repo_state.dart';
 import 'package:flutter_redux_boilerplate/selectors/selectors.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -62,6 +63,18 @@ void main() {
 
       test('should return the total results', () {
         expect(result, 0);
+      });
+    });
+
+    group('when ownerDetailsStateSelector', () {
+      OwnerDetailsState result;
+
+      setUp(() {
+        result = ownerDetailsStateSelector(store.state);
+      });
+
+      test('should return the owner details state', () {
+        expect(result == null, false);
       });
     });
   });

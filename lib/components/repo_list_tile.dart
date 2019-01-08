@@ -3,9 +3,11 @@ import 'package:flutter_redux_boilerplate/models/repo.dart';
 
 class RepoListTile extends StatelessWidget {
   final Repo repo;
+  final Function(String) onTap;
 
   const RepoListTile({
     @required this.repo,
+    @required this.onTap,
   }) : assert(repo != null);
 
   @override
@@ -17,8 +19,7 @@ class RepoListTile extends StatelessWidget {
       ),
       subtitle: Text(repo.owner.login),
       trailing: _createTrailing(),
-      onTap: () {
-      },
+      onTap: () => onTap(repo.owner.login),
     );
   }
 

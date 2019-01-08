@@ -1,4 +1,5 @@
 import 'package:flutter_redux_boilerplate/models/github_repo_result.dart';
+import 'package:flutter_redux_boilerplate/models/owner_details_result.dart';
 import 'package:flutter_redux_boilerplate/services/github_web_client.dart';
 
 class GithubRepository {
@@ -10,5 +11,9 @@ class GithubRepository {
 
   Future<GithubRepoResult> loadRepoResult(String query) async {
     return await githubWebClient.fetchRepoResult(query);
+  }
+
+  Future<OwnerDetailsResult> loadOwnerDetails(String owner) async {
+    return await githubWebClient.fetchOwnerDetails(owner);
   }
 }
