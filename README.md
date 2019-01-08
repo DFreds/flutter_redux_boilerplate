@@ -4,6 +4,8 @@ A Flutter boilerplate application with Redux.
 
 ## Getting Started
 
+Read about the basics of Redux [here](https://github.com/johnpryan/redux.dart/blob/master/doc/basics.md).
+
 Fork this repository or simply use it as a base as you make your own application. If you fork it,
 be sure to rename the app to your app name in these locations:
 
@@ -11,19 +13,20 @@ be sure to rename the app to your app name in these locations:
 * `ios/Runner/Info.plist` (CFBundleName, replace the `<string>` entry)
 * `redux_app.dart` (title property)
 
-
 ## Motivation
 
 I wasn't happy with the other Flutter Redux boilerplates as I found they included too many optional
-libraries. This boilerplate contains only the most basic libraries required to implement Redux in a
-Flutter application while still showcasing how to do all the necessary Redux patterns.
+libraries or strange application structures and methodologies. This boilerplate contains only the
+basic libraries required to implement Redux in a Flutter application while still showcasing how to
+do all the necessary Redux patterns.
 
 The two main libraries are listed below.
 
 * [redux.dart](https://pub.dartlang.org/packages/redux)
 * [flutter_redux.dart](https://pub.dartlang.org/packages/flutter_redux)
 
-Read about the basics of Redux [here](https://github.com/johnpryan/redux.dart/blob/master/doc/basics.md).
+Additionally, I tried to keep the application structure as similar as possible to the "standard"
+React/Redux structure.
 
 ## App Structure
 
