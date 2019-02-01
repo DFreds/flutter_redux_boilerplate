@@ -23,5 +23,15 @@ class AppState {
     );
   }
 
-  // TODO hash code and equals
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is AppState &&
+          navState == other.navState &&
+          repoState == other.repoState &&
+          ownerDetailsState == other.ownerDetailsState;
+
+  @override
+  int get hashCode =>
+      navState.hashCode ^ repoState.hashCode ^ ownerDetailsState.hashCode;
 }

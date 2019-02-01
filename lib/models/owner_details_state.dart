@@ -32,4 +32,16 @@ class OwnerDetailsState {
       error: error ?? this.error,
     );
   }
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is OwnerDetailsState &&
+          runtimeType == other.runtimeType &&
+          isLoading == other.isLoading &&
+          data == other.data &&
+          error == other.error;
+
+  @override
+  int get hashCode => isLoading.hashCode ^ data.hashCode ^ error.hashCode;
 }

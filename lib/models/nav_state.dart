@@ -28,5 +28,14 @@ class NavState {
     );
   }
 
-  // TODO hash code and equals
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is NavState &&
+          runtimeType == other.runtimeType &&
+          selectedBottomNav == other.selectedBottomNav &&
+          rootScreen == other.rootScreen;
+
+  @override
+  int get hashCode => selectedBottomNav.hashCode ^ rootScreen.hashCode;
 }

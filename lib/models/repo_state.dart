@@ -43,5 +43,22 @@ class RepoState {
     );
   }
 
-  // TODO hash code and equals
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is RepoState &&
+          runtimeType == other.runtimeType &&
+          isLoading == other.isLoading &&
+          currentPage == other.currentPage &&
+          query == other.query &&
+          data == other.data &&
+          error == other.error;
+
+  @override
+  int get hashCode =>
+      isLoading.hashCode ^
+      currentPage.hashCode ^
+      query.hashCode ^
+      data.hashCode ^
+      error.hashCode;
 }

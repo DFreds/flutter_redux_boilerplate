@@ -24,4 +24,15 @@ class GithubRepoResult {
       }).toList(),
     );
   }
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is GithubRepoResult &&
+          runtimeType == other.runtimeType &&
+          totalCount == other.totalCount &&
+          items == other.items;
+
+  @override
+  int get hashCode => totalCount.hashCode ^ items.hashCode;
 }
