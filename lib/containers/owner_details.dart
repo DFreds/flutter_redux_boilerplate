@@ -10,6 +10,8 @@ import 'package:flutter_redux_boilerplate/selectors/selectors.dart';
 import 'package:redux/redux.dart';
 
 class OwnerDetails extends StatelessWidget {
+  OwnerDetails({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return StoreConnector<AppState, _ViewModel>(
@@ -75,7 +77,6 @@ class OwnerDetails extends StatelessWidget {
   }
 }
 
-@immutable
 class _ViewModel {
   final OwnerDetailsState ownerDetailsState;
 

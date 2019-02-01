@@ -5,8 +5,9 @@ class OwnerDetailsScreen extends StatelessWidget {
   final String ownerName;
 
   OwnerDetailsScreen({
+    Key key,
     @required this.ownerName,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

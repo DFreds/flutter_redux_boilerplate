@@ -7,6 +7,8 @@ import 'package:redux/redux.dart';
 
 class BottomNav extends StatelessWidget {
 
+  BottomNav({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return StoreConnector<AppState, _ViewModel>(

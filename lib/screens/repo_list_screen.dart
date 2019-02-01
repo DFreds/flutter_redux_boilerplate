@@ -4,6 +4,7 @@ import 'package:flutter_redux_boilerplate/containers/search_field.dart';
 import 'package:flutter_redux_boilerplate/containers/total_results_text.dart';
 
 class RepoListScreen extends StatelessWidget {
+  RepoListScreen({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

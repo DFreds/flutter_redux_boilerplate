@@ -12,6 +12,8 @@ import 'package:flutter_redux_boilerplate/selectors/selectors.dart';
 import 'package:redux/redux.dart';
 
 class RepoList extends StatelessWidget {
+  RepoList({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return StoreConnector<AppState, _ViewModel>(
@@ -52,7 +54,6 @@ class RepoList extends StatelessWidget {
   }
 }
 
-@immutable
 class _ViewModel {
   final RepoState repoState;
   final Function(String) onListTileTap;

@@ -5,6 +5,8 @@ import 'package:flutter_redux_boilerplate/selectors/selectors.dart';
 import 'package:redux/redux.dart';
 
 class TotalResultsText extends StatelessWidget {
+  TotalResultsText({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return StoreConnector<AppState, _ViewModel>(

@@ -4,5 +4,5 @@ import 'package:flutter_redux_boilerplate/store/store.dart';
 
 void main() {
   final store = createStore();
-  runApp(ReduxApp(store));
+  runApp(ReduxApp(store: store));
 }

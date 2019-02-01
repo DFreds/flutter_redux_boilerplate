@@ -6,9 +6,11 @@ class RepoListTile extends StatelessWidget {
   final Function(String) onTap;
 
   const RepoListTile({
+    Key key,
     @required this.repo,
     @required this.onTap,
-  }) : assert(repo != null);
+  })  : assert(repo != null),
+        super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -7,7 +7,10 @@ import 'package:redux/redux.dart';
 class ReduxApp extends StatelessWidget {
   final Store<AppState> store;
   
-  ReduxApp(this.store);
+  ReduxApp({
+    Key key,
+    this.store,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

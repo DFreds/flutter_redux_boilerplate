@@ -6,10 +6,11 @@ class PartialBoldText extends StatelessWidget {
   final String defaultText;
 
   PartialBoldText({
+    Key key,
     @required this.boldText,
     this.normalText,
     this.defaultText = "",
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

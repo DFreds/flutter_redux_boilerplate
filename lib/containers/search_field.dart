@@ -5,6 +5,8 @@ import 'package:flutter_redux_boilerplate/models/app_state.dart';
 import 'package:redux/redux.dart';
 
 class SearchField extends StatelessWidget {
+  SearchField({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return StoreConnector<AppState, _ViewModel>(
@@ -25,7 +27,6 @@ class SearchField extends StatelessWidget {
   }
 }
 
-@immutable
 class _ViewModel {
   final Function(String) onQueryChanged;
 
@@ -41,6 +42,4 @@ class _ViewModel {
       }
     );
   }
-
-  // TODO hash code and equals
 }
