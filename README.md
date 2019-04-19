@@ -60,7 +60,7 @@ Middleware are functions that allow Redux to run asynchronous code and dispatch 
 the async functions complete. Each middleware must be provided to the store when the store is
 created. An example is provided with `app_middleware.dart`, which utilizes the `TypedMiddleware`
 helper to map specific actions to specific middleware methods. However, this is just my
-recommended way of doing it, and there is nothing stopping you from implementing your reducers with
+recommended way of doing it, and there is nothing stopping you from implementing your middleware with
 simple `switch` or `if` statements. Read more about middleware
 [here](https://github.com/johnpryan/redux.dart/blob/master/doc/async.md).
 
@@ -146,7 +146,7 @@ version of `AppState`.
       "  Widget build(BuildContext context) {",
       "    return StoreConnector<AppState, _ViewModel>(",
       "      distinct: true,",
-      "      converter: (store) => _ViewModel.fromStore(store),",
+      "      converter: _ViewModel.fromStore,",
       "      builder: (BuildContext context, _ViewModel viewModel) {",
       "        return Container();",
       "      },",
